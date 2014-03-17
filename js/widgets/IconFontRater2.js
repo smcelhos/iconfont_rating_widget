@@ -15,7 +15,7 @@
         half: "&#xe601",  // custom icomoon font, half start
 		full: "&#xe602",  // custom icomoon font, full star
         value: 0,
-        templateString: "<div class='IconFontRater'></div>",
+        templateString: "<span class='IconFontRater'></span>",
         buildRendering: function () {
             // summary: 
 			//		Dijit Lifecycle method.  Build the rendering for this widget.
@@ -39,7 +39,7 @@
 			//	return: HTMLElement
 			//		Internal representation of our widget
 			
-            var representation = domConstruct.create("div");
+            var representation = domConstruct.create("span");
             var span = null;
             for (var i = 0; i < this.numStars; i++, value--) {
                 if (value >= 1) {
@@ -57,7 +57,7 @@
 			
                 
             }
-            
+			
             return representation;
         },
        
