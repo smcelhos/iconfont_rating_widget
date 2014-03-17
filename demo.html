@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>IconFont Demo</title>
+	<link rel="stylesheet" href="js/widgets/css/IconFontRater.css" type="text/css" />
+	<script>
+        // Instead of using data-dojo-config, we're creating a dojoConfig
+        // object *before* we load dojo.js; they're functionally identical,
+        // it's just easier to read this approach with a larger configuration.
+        var dojoConfig = {
+            async: true,
+            // This code registers the correct location of the "demo"
+            // package so we can load Dojo from the CDN whilst still
+            // being able to load local modules
+            packages: [{
+                name: "custom",
+                location: location.pathname.replace(/\/[^/]*$/, '') + '/js'
+            }]
+        };
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.9.3/dojo/dojo.js"></script>
+	<script>
+		require(["dojo/parser", "custom/widgets/IconFontRater", "dojo/domReady!"], function(parser, IconFontRater){
+			parser.parse();
+			
+		});
+		
+		function myCustomChange(numStar){
+			
+			var myCustom = dijit.registry.byId('myCustom');
+			numStar = numStar || myCustom.get("numStars");
+			var value = document.getElementById('val').value || myCustom.get("value");
+			myCustom.set("numStars", numStar);
+			myCustom.set("value", value)
+		}
+		
+	</script>
+	
+</head>
+<body>
+	<h1>IconFontRater</h1>
+	
+	<h2>Basics</h2>
+	<p>A simple, font based, Rating widget.  The widget is extremely simple, but can easily be expanded upon.</p>
+	<div data-dojo-type="custom/widgets/IconFontRater"></div>
+	<div data-dojo-type="custom/widgets/IconFontRater"  data-dojo-props="value: 2.5"></div>
+	<div data-dojo-type="custom/widgets/IconFontRater"  data-dojo-props="value: 5"></div>
+	
+	<h2>Customizable</h2>
+	<p>By changing out  the font, can get a different effect.  I've included a custom <a href="http://icomoon.io/">icomoon</a> font, and some reasonable defaults. </p>
+	<ul>
+		<li>empty - default: '&amp;#xe600' (empty star)</li>
+		<li>half - default: '&amp;#xe601' (half star)</li>
+		<li>full - default: '&amp;#xe602' (full star)</i>
+	</ul>
+	
+	<p>
+	<div data-dojo-type="custom/widgets/IconFontRater" style="color: steelblue" data-dojo-props="full: '&#xe603', empty: '&#xe604', value: 3"></div>
+	</p>
+	<p>
+	<div data-dojo-type="custom/widgets/IconFontRater" style="color: red" data-dojo-props="full: '&#xe605', empty: '&#xe606', value: 3"></div>
+	</p>
+	<p>
+	By setting properties can further customize
+	<ul>
+		<li>numStars - default: 5 (the number of ratable units)</li>
+		<li>value - default: 0 (the number of stars to be filled in</li>
+	</ul>
+	<div data-dojo-type="custom/widgets/IconFontRater" id="myCustom" data-dojo-props="value: 5, numStars: 10"></div>
+	<label for="numStars">numStars:</label>
+	<input type="text" id="numStars" onchange="myCustomChange(this.value)" />
+	<label for="numStars">value:</label>
+	<input type="text" id="val" onchange="myCustomChange()" />
+	</p>
+	
+	
+	<h2>Scalable</h2>
+	<p>Font based.  The "images" scale well.</p>
+	<p>
+	<div data-dojo-type="custom/widgets/IconFontRater" style="font-size: .5em" data-dojo-props="value: 2"></div>
+	</p>
+	<p>
+	<div data-dojo-type="custom/widgets/IconFontRater" style="font-size: 4em" data-dojo-props="value: 4.5"></div>
+	</p>
+	
+	<h2>Technologies</h2>
+	<ul>
+		<li>Dojo
+			<ul>
+				<li>Dijit - an (awesome) widget framework.</li>
+				<li>parser - use widget declaratively</li>
+			</ul>
+		</li>
+		<li><a href="http://icomoon.io/">Icomoon</a> IconFonts - custom built and crips icon fonts</li>
+	</ul>
+	
+	<h2>TODO</h2>
+	<ul>
+		<li>Add way to set value with click.*</li>
+		<li>Build out more interesting custom font set</li>
+		<li>Add keyboard support (up/right increase, down/left decrease)</li>
+	</ul>
+	
+	*most likely I will just wrap each character in a span with onclick handler
+
+</body>
+</html>
+
+
