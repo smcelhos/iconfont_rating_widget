@@ -20,7 +20,7 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.9.3/dojo/dojo.js"></script>
 	<script>
-		require(["dojo/parser", "custom/widgets/IconFontRater", "dojo/domReady!"], function(parser, IconFontRater){
+		require(["dojo/parser", "custom/widgets/IconFontRater", "custom/widgets/IconFontRater2", "dojo/domReady!"], function(parser, IconFontRater){
 			parser.parse();
 			
 		});
@@ -81,6 +81,12 @@
 	</p>
 	<p>
 	<div data-dojo-type="custom/widgets/IconFontRater" style="font-size: 4em" data-dojo-props="value: 4.5"></div>
+	</p>
+	
+	<h2>Interactive</h2>
+	<p>Added an alternate version, which with just a few lines of code have added click handling.  Show's that I don't have to lose anything by using iconfonts.  The same could be done to provide a hover effect as well if so desired.</p>
+	<p>
+		<div data-dojo-type="custom/widgets/IconFontRater2" data-dojo-props="value: 2.5" style="font-size: 2em;"></div>
 	</p>
 	
 	<h2>Technologies</h2>

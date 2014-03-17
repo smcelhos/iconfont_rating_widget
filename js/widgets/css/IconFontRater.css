@@ -12,6 +12,11 @@
 .IconFontRater {
     font-family: icomoon;
     color: darkorange;
-    letter-spacing:.33em;
+	letter-spacing: .33em; 
     cursor: pointer;   
+}
+
+.IconFontRater span {
+	letter-spacing: initial; /*remove letter-spacing in spaned version in favor of padding*/
+	padding: .15em;
 }
